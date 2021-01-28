@@ -25,9 +25,11 @@
 
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button id="phone-decrease" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <button onclick="handleProductChange(false)" class="btn btn-default"><i
+                                 class="fas fa-minus"></i></button>
                            <input type="text" id="phone-count" class="form-control text-center" value="1">
-                           <button id="phone-increase" class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button onclick="handleProductChange(true)" class="btn btn-default"><i
+                                 class="fas fa-plus"></i></button>
                         </div>
                         <h5>$ <span id="phone-price">1250</span> </h5>
                         <img src="images/remove.png" alt="" class="remove-item">
@@ -80,16 +82,16 @@
 
    <script>
       // plus button event handler
-      const phoneIncrease = document.getElementById("phone-increase");
-      phoneIncrease.addEventListener("click", function () {
-         handleProductChange(true);
-      });
+      // const phoneIncrease = document.getElementById("phone-increase");
+      // phoneIncrease.addEventListener("click", function () {
+      //    handleProductChange(true);
+      // });
 
-      const phoneDecrease = document.getElementById("phone-decrease");
-      phoneDecrease.addEventListener("click", function () {
-         handleProductChange(false);
-      });
-
+      // const phoneDecrease = document.getElementById("phone-decrease");
+      // phoneDecrease.addEventListener("click", function () {
+      //    handleProductChange(false);
+      // });
+      // above those are commented because i called these function directly from button bt onclick.
       function handleProductChange(isIncrease) {
          const phoneInput = document.getElementById("phone-count");
          const phoneCount = parseInt(phoneInput.value);
@@ -97,13 +99,14 @@
          if (isIncrease == true) {
             phoneNewInput = phoneCount + 1;
          }
-         if (isIncrease == false) {
+         if (isIncrease == false && phoneNewInput > 0) {
             phoneNewInput = phoneCount - 1;
          }
          phoneInput.value = phoneNewInput;
          const phoneTotal = phoneNewInput * 1259;
          const phonePrice = document.getElementById("phone-price").innerText = phoneTotal;
       };
+      // these are commented below because i shorted this code bt making function above
 
       // // minus button event handler
       // const phoneDecrease = document.getElementById("phone-decrease");
