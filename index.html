@@ -45,12 +45,14 @@
                      </div>
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button onclick="caseProductChange(false)" class="btn btn-default"><i
+                                 class="fas fa-minus"></i></button>
+                           <input type="text" id="case-count" class="form-control text-center" value="1">
+                           <button onclick="caseProductChange(true)" class="btn btn-default"><i
+                                 class="fas fa-plus"></i></button>
 
                         </div>
-                        <h5>$59</h5>
+                        <h5>$ <span id="case-price">59</span></h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -91,6 +93,7 @@
       // phoneDecrease.addEventListener("click", function () {
       //    handleProductChange(false);
       // });
+
       // above those are commented because i called these function directly from button bt onclick.
       function handleProductChange(isIncrease) {
          const phoneInput = document.getElementById("phone-count");
@@ -108,7 +111,7 @@
       };
       // these are commented below because i shorted this code bt making function above
 
-      // // minus button event handler
+      // // Phone minus button event handler
       // const phoneDecrease = document.getElementById("phone-decrease");
       // phoneDecrease.addEventListener("click", function () {
       //    const phoneInput = document.getElementById("phone-count");
@@ -118,7 +121,7 @@
       //    const phoneTotal = phoneNewInput * 1259;
       //    const phonePrice = document.getElementById("phone-price").innerText = phoneTotal;
       // })
-      // // plus button event handler
+      // // Phone plus button event handler
       // const phoneIncrease = document.getElementById("phone-increase");
       // phoneIncrease.addEventListener("click", function () {
       //    const phoneInput = document.getElementById("phone-count");
@@ -127,6 +130,60 @@
       //    phoneInput.value = phoneNewInput;
       //    const phoneTotal = phoneNewInput * 1250;
       //    document.getElementById("phone-price").innerText = phoneTotal;
+
+      // })
+
+
+      // those are commented below because i called these function directly from button bt onclick.
+
+      // //case minus button event handler
+      // const caseDecrease = document.getElementById("case-decrease");
+      // caseDecrease.addEventListener("click", function () {
+      //    caseProductChange(false);
+      // });
+      // // case plus button event handler
+      // const caseIncrease = document.getElementById("case-increase");
+      // caseIncrease.addEventListener("click", function () {
+      //    caseProductChange(true);
+
+      // });
+
+      function caseProductChange(isIncrease) {
+         const caseInput = document.getElementById("case-count");
+         const caseCount = parseInt(caseInput.value);
+         let caseNewInput = caseCount;
+         if (isIncrease == true) {
+            caseNewInput = caseCount + 1;
+         }
+         if (isIncrease == false && caseCount > 0) {
+            caseNewInput = caseCount - 1;
+         }
+         caseInput.value = caseNewInput;
+         const caseTotal = caseNewInput * 59;
+         const casePrice = document.getElementById("case-price").innerText = caseTotal;
+      }
+
+
+      // these are commented below because i shorted this code bt making function above
+      // //case minus button event handler
+      // const caseDecrease = document.getElementById("case-decrease");
+      // caseDecrease.addEventListener("click", function () {
+      //    const caseInput = document.getElementById("case-count");
+      //    const caseCount = parseInt(caseInput.value);
+      //    const caseNewInput = caseCount - 1;
+      //    caseInput.value = caseNewInput;
+      //    const caseTotal = caseNewInput * 59;
+      //    const casePrice = document.getElementById("case-price").innerText = caseTotal;
+      // })
+      // // case plus button event handler
+      // const caseIncrease = document.getElementById("case-increase");
+      // caseIncrease.addEventListener("click", function () {
+      //    const caseInput = document.getElementById("case-count");
+      //    const caseCount = parseInt(caseInput.value);
+      //    const caseNewInput = caseCount + 1;
+      //    caseInput.value = caseNewInput;
+      //    const caseTotal = caseNewInput * 59;
+      //    document.getElementById("case-price").innerText = caseTotal;
 
       // })
    </script>
