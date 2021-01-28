@@ -108,6 +108,7 @@
          phoneInput.value = phoneNewInput;
          const phoneTotal = phoneNewInput * 1259;
          const phonePrice = document.getElementById("phone-price").innerText = phoneTotal;
+         calculateTotal();
       };
       // these are commented below because i shorted this code by making function above
 
@@ -161,10 +162,21 @@
          caseInput.value = caseNewInput;
          const caseTotal = caseNewInput * 59;
          const casePrice = document.getElementById("case-price").innerText = caseTotal;
+
+         calculateTotal();
       }
 
+      function calculateTotal() {
+         const phoneInput = document.getElementById("phone-count");
+         const phoneCount = parseInt(phoneInput.value);
+         const caseInput = document.getElementById("case-count");
+         const caseCount = parseInt(caseInput.value);
 
-      // these are commented below because i shorted this code by making function above
+         const totalPrice = phoneCount * 1250 + caseCount * 59;
+         document.getElementById("total-price").innerText = totalPrice;
+      }
+
+      // these are commented below because i shorted this code b making function above
       // //case minus button event handler
       // const caseDecrease = document.getElementById("case-decrease");
       // caseDecrease.addEventListener("click", function () {
